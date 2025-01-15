@@ -1,0 +1,2 @@
+# hide "prod" data from git
+sqlite.db*
