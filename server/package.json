@@ -10,7 +10,7 @@
     "start": "babel-node index.js",
     "start:dev": "nodemon",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "db:mock-init": "npx prisma db push && npx prisma db seed",
+    "db:mock-init": "npx prisma generate && npx prisma db push && npx prisma db seed",
     "db:mock-reset": "npx prisma migrate reset"
   },
   "dependencies": {
