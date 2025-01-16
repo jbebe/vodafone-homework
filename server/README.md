@@ -14,3 +14,5 @@ npm run db:mock-init
 ```bash
 npm run start
 ```
+
+4. Access the website here: [http://localhost:3000/](http://localhost:3000/)
