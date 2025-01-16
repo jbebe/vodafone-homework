@@ -10,7 +10,7 @@ export class CatchEverythingFilter {
     let status;
     if (exception instanceof PrismaNotFoundException) status = 404;
     else status = 500;
-      
+
     response.status(status).end();
   }
 }

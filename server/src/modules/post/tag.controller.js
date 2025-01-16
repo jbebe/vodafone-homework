@@ -1,4 +1,10 @@
-import { Controller, Dependencies, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Dependencies,
+  Get,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { PostService } from './post.service';
 import { PostController } from './post.controller';
 
@@ -16,7 +22,7 @@ export class TagController {
     posts.map(PostController.mapResponse);
 
     return {
-      data: posts
-    }
+      data: posts,
+    };
   }
 }

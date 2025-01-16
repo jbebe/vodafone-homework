@@ -1,4 +1,11 @@
-import { Controller, Dependencies, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Dependencies,
+  Get,
+  Param,
+  ParseIntPipe,
+  Header,
+} from '@nestjs/common';
 import { PostService } from './post.service';
 
 @Controller('posts')
@@ -15,23 +22,23 @@ export class PostController {
     posts.map(PostController.mapResponse);
 
     return {
-      data: posts
-    }
+      data: posts,
+    };
   }
 
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id) {
     const post = await this.postService.getPost(id);
-    
+
     PostController.mapResponse(post);
 
     return {
-      data: post
-    }
+      data: post,
+    };
   }
 
-  static mapResponse(entity){
+  static mapResponse(entity) {
     entity.created_at = entity.created_at.toJSON().split('T')[0];
-    entity.tags = entity.tags.map(x => x.id);
+    entity.tags = entity.tags.map((x) => x.id);
   }
 }

@@ -1,4 +1,10 @@
-import { Controller, Dependencies, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Dependencies,
+  Get,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { PostService } from '../post/post.service';
 
 @Controller('posts/:postId/comments')
@@ -15,11 +21,11 @@ export class CommentController {
     comments.map(this.mapResponse);
 
     return {
-      data: comments
-    }
+      data: comments,
+    };
   }
 
-  mapResponse(entity){
+  mapResponse(entity) {
     entity.created_at = entity.created_at.toJSON().split('T')[0];
     entity.author = entity.author.name;
   }
